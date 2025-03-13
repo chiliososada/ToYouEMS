@@ -3,6 +3,17 @@ using System.Text;
 using ToYouEMS.ToYouEMS.Core.Interfaces;
 using ToYouEMS.ToYouEMS.Core.Models.DTOs;
 using ToYouEMS.ToYouEMS.Core.Models.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using System.Threading.Tasks;
+
+using BC = BCrypt.Net.BCrypt;
+
 
 namespace ToYouEMS.ToYouEMS.Infrastructure.Services
 {

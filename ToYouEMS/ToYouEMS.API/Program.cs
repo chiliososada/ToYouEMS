@@ -39,8 +39,14 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateIssuerSigningKey = true,
             ValidIssuer = builder.Configuration["Jwt:Issuer"],
             ValidAudience = builder.Configuration["Jwt:Audience"],
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
+            // 添加以下配置，防止claims被自动映射
+            NameClaimType = "unique_name",  // 确保用户名仍然可以通过 User.Identity.Name 访问
+            RoleClaimType = "role"          // 角色声明
         };
+
+        // 禁用自动映射，保留原始claim类型
+        options.MapInboundClaims = false;
     });
 
 // 添加Swagger/OpenAPI支持

@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ToYouEMS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+75290119ecd730c4f07cd0c8023e67520edf365d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f8fcd2986cf2ed2f8ebb3b7b2c90aaff08b9946c")]
 [assembly: System.Reflection.AssemblyProductAttribute("ToYouEMS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ToYouEMS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

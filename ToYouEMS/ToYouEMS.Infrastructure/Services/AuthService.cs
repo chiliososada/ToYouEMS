@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BC = BCrypt.Net.BCrypt;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 
 namespace ToYouEMS.ToYouEMS.Infrastructure.Services
@@ -154,22 +155,51 @@ namespace ToYouEMS.ToYouEMS.Infrastructure.Services
             return true;
         }
 
+        //private string GenerateJwtToken(User user)
+        //{
+        //    var tokenHandler = new JwtSecurityTokenHandler();
+        //    var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
+
+        //    var claims = new[]
+        //    {
+        //        new Claim(JwtRegisteredClaimNames.Sub, user.UserID.ToString()),
+        //        new Claim(JwtRegisteredClaimNames.UniqueName, user.Username),
+        //        new Claim("userType", user.UserType.ToString()),
+        //        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+        //    };
+
+        //    var tokenDescriptor = new SecurityTokenDescriptor
+        //    {
+        //        Subject = new ClaimsIdentity(claims),
+        //        Expires = DateTime.UtcNow.AddDays(7),
+        //        SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
+        //        Issuer = _configuration["Jwt:Issuer"],
+        //        Audience = _configuration["Jwt:Audience"]
+        //    };
+
+        //    var token = tokenHandler.CreateToken(tokenDescriptor);
+        //    return tokenHandler.WriteToken(token);
+        //}
         private string GenerateJwtToken(User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
 
+            // 使用枚举值的字符串表示作为角色名称
+            string roleName = user.UserType.ToString();
+
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub, user.UserID.ToString()),
-                new Claim(JwtRegisteredClaimNames.UniqueName, user.Username),
-                new Claim("userType", user.UserType.ToString()),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-            };
+        new Claim(JwtRegisteredClaimNames.Sub, user.UserID.ToString()),
+        new Claim(JwtRegisteredClaimNames.UniqueName, user.Username),
+        new Claim("userType", user.UserType.ToString()),
+        new Claim(ClaimTypes.Role, roleName),  // 添加角色声明
+        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+    };
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(claims),
+                Subject = new ClaimsIdentity(claims, JwtBearerDefaults.AuthenticationScheme),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
                 Issuer = _configuration["Jwt:Issuer"],

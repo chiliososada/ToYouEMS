@@ -88,6 +88,23 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var context = services.GetRequiredService<AppDbContext>();
+        // 确保数据库被创建
+        context.Database.EnsureCreated();
+        Console.WriteLine("数据库创建成功");
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "创建数据库时出错");
+        Console.WriteLine($"创建数据库时出错: {ex.Message}");
+    }
+}
 
 // 配置HTTP请求管道
 if (app.Environment.IsDevelopment())

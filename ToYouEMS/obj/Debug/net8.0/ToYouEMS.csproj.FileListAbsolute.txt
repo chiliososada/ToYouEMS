@@ -1,3 +1,5 @@
+C:\Users\chili\source\repos\ToYouEMS\ToYouEMS\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\chili\source\repos\ToYouEMS\ToYouEMS\bin\Debug\net8.0\appsettings.json
 C:\Users\chili\source\repos\ToYouEMS\ToYouEMS\bin\Debug\net8.0\ToYouEMS.exe
 C:\Users\chili\source\repos\ToYouEMS\ToYouEMS\bin\Debug\net8.0\ToYouEMS.deps.json
 C:\Users\chili\source\repos\ToYouEMS\ToYouEMS\bin\Debug\net8.0\ToYouEMS.runtimeconfig.json
@@ -117,5 +119,3 @@ C:\Users\chili\source\repos\ToYouEMS\ToYouEMS\obj\Debug\net8.0\refint\ToYouEMS.d
 C:\Users\chili\source\repos\ToYouEMS\ToYouEMS\obj\Debug\net8.0\ToYouEMS.pdb
 C:\Users\chili\source\repos\ToYouEMS\ToYouEMS\obj\Debug\net8.0\ToYouEMS.genruntimeconfig.cache
 C:\Users\chili\source\repos\ToYouEMS\ToYouEMS\obj\Debug\net8.0\ref\ToYouEMS.dll
-C:\Users\chili\source\repos\ToYouEMS\ToYouEMS\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\chili\source\repos\ToYouEMS\ToYouEMS\bin\Debug\net8.0\appsettings.json

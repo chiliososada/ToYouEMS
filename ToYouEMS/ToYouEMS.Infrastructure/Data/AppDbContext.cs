@@ -17,6 +17,7 @@ namespace ToYouEMS.ToYouEMS.Infrastructure.Data
         public DbSet<Profile> Profiles { get; set; }
         public DbSet<Case> Cases { get; set; }
         public DbSet<Question> Questions { get; set; }
+        public DbSet<QuestionRevision> QuestionRevisions { get; set; }
         public DbSet<Resume> Resumes { get; set; }
         public DbSet<Attendance> Attendances { get; set; }
         public DbSet<Log> Logs { get; set; }
@@ -81,7 +82,7 @@ namespace ToYouEMS.ToYouEMS.Infrastructure.Data
             {
                 entity.ToTable("Questions");
                 entity.HasKey(e => e.QuestionID);
-                entity.Property(e => e.QuestionText).IsRequired().HasColumnName("Question");
+                entity.Property(e => e.QuestionText).IsRequired();
                 entity.Property(e => e.Source).HasDefaultValue(QuestionSource.Personal);
                 entity.Property(e => e.Status).HasDefaultValue(QuestionStatus.Approved);
                 entity.Property(e => e.CreatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP");
@@ -116,6 +117,23 @@ namespace ToYouEMS.ToYouEMS.Infrastructure.Data
                       .HasForeignKey(d => d.ReviewerID)
                       .OnDelete(DeleteBehavior.Restrict)
                       .IsRequired(false);
+            });
+            modelBuilder.Entity<QuestionRevision>(entity =>
+            {
+                entity.ToTable("QuestionRevisions");
+                entity.HasKey(e => e.RevisionID);
+                entity.Property(e => e.RevisionText).IsRequired();
+                entity.Property(e => e.Type).IsRequired();
+                entity.Property(e => e.CreatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                // 关系配置
+                entity.HasOne(d => d.Question)
+                      .WithMany(p => p.Revisions)
+                      .HasForeignKey(d => d.QuestionID);
+
+                entity.HasOne(d => d.User)
+                      .WithMany()
+                      .HasForeignKey(d => d.UserID);
             });
 
             // 勤务表配置

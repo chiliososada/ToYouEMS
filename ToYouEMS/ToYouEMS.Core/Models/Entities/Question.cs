@@ -11,9 +11,11 @@
         public QuestionStatus Status { get; set; }
         public DateTime CreatedAt { get; set; }
 
+
         // 导航属性
         public Case Case { get; set; }
         public User User { get; set; }
+        public ICollection<QuestionRevision> Revisions { get; set; } = new List<QuestionRevision>();
     }
 
     public enum QuestionSource

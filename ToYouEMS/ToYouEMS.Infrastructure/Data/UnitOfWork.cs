@@ -12,6 +12,7 @@ namespace ToYouEMS.ToYouEMS.Infrastructure.Data
         public IRepository<Profile> Profiles { get; private set; }
         public IRepository<Case> Cases { get; private set; }
         public IRepository<Question> Questions { get; private set; }
+        public IRepository<QuestionRevision> QuestionRevisions { get; private set; }
         public IRepository<Resume> Resumes { get; private set; }
         public IRepository<Attendance> Attendances { get; private set; }
         public IRepository<Log> Logs { get; private set; }
@@ -26,6 +27,7 @@ namespace ToYouEMS.ToYouEMS.Infrastructure.Data
             Profiles = new Repository<Profile>(context);
             Cases = new Repository<Case>(context);
             Questions = new Repository<Question>(context);
+            QuestionRevisions = new Repository<QuestionRevision>(context);
             Resumes = new Repository<Resume>(context);
             Attendances = new Repository<Attendance>(context);
             Logs = new Repository<Log>(context);

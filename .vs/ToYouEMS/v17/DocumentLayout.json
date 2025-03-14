@@ -3,6 +3,58 @@
   "WorkspaceRootPath": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\toyouems.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\toyouems.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\toyouems.infrastructure\\services\\templateinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\toyouems.infrastructure\\services\\templateinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\toyouems.api\\controllers\\attendancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\toyouems.api\\controllers\\attendancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\toyouems.api\\controllers\\resumecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\toyouems.api\\controllers\\resumecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\toyouems.api\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\toyouems.api\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\toyouems.api\\controllers\\filecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\toyouems.api\\controllers\\filecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\toyouems.infrastructure\\services\\localfilestorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\toyouems.infrastructure\\services\\localfilestorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\toyouems.core\\interfaces\\ifilestorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\toyouems.core\\interfaces\\ifilestorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\toyouems.api\\controllers\\questioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\toyouems.api\\controllers\\questioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\toyouems.api\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\toyouems.api\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\toyouems.api\\controllers\\casecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\toyouems.api\\controllers\\casecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\toyouems.core\\models\\entities\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\toyouems.core\\models\\entities\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\toyouems.infrastructure\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\toyouems.infrastructure\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -19,20 +71,8 @@
       "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\toyouems.core\\models\\entities\\questionrevision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\toyouems.api\\controllers\\casecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\toyouems.api\\controllers\\casecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\toyouems.api\\controllers\\questioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\toyouems.api\\controllers\\questioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\toyouems.core\\models\\dtos\\questiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\toyouems.core\\models\\dtos\\questiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\toyouems.api\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\toyouems.api\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\toyouems.core\\models\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -55,36 +95,16 @@
       "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\toyouems.core\\interfaces\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\toyouems.api\\controllers\\resumecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\toyouems.api\\controllers\\resumecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\toyouems.api\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\toyouems.api\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\toyouems.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\toyouems.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\toyouems.core\\models\\entities\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\toyouems.core\\models\\entities\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\toyouems.infrastructure\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\toyouems.infrastructure\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\toyouems.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\toyouems.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\toyouems.infrastructure\\data\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\toyouems.infrastructure\\data\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|solutionrelative:toyouems\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5AF67C06-6BF2-4824-B9D3-6E28A20038B9}|ToYouEMS\\ToYouEMS.csproj|c:\\users\\chili\\source\\repos\\toyouems\\toyouems\\toyouems.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
@@ -138,7 +158,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -146,98 +166,163 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CaseController.cs",
-              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.API\\Controllers\\CaseController.cs",
-              "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.API\\Controllers\\CaseController.cs",
-              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.API\\Controllers\\CaseController.cs",
-              "RelativeToolTip": "ToYouEMS\\ToYouEMS.API\\Controllers\\CaseController.cs",
-              "ViewState": "AQIAAEUAAAAAAAAAAAAiwFkAAAAQAAAA",
+              "DocumentIndex": 1,
+              "Title": "TemplateInitializer.cs",
+              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Infrastructure\\Services\\TemplateInitializer.cs",
+              "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Infrastructure\\Services\\TemplateInitializer.cs",
+              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Infrastructure\\Services\\TemplateInitializer.cs",
+              "RelativeToolTip": "ToYouEMS\\ToYouEMS.Infrastructure\\Services\\TemplateInitializer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADMAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T12:09:14.964Z",
+              "WhenOpened": "2025-03-14T07:57:24.302Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Question.cs",
-              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Question.cs",
-              "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Question.cs",
-              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Question.cs",
-              "RelativeToolTip": "ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Question.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwBEAAAArAAAA",
+              "Title": "AttendanceController.cs",
+              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.API\\Controllers\\AttendanceController.cs",
+              "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.API\\Controllers\\AttendanceController.cs",
+              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.API\\Controllers\\AttendanceController.cs",
+              "RelativeToolTip": "ToYouEMS\\ToYouEMS.API\\Controllers\\AttendanceController.cs",
+              "ViewState": "AQIAAKAAAAAAAAAAAAAiwP0AAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T01:37:38.968Z",
+              "WhenOpened": "2025-03-14T07:56:36.215Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "IUnitOfWork.cs",
-              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Interfaces\\IUnitOfWork.cs",
-              "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Core\\Interfaces\\IUnitOfWork.cs",
-              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Interfaces\\IUnitOfWork.cs",
-              "RelativeToolTip": "ToYouEMS\\ToYouEMS.Core\\Interfaces\\IUnitOfWork.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAABAAAA",
+              "DocumentIndex": 6,
+              "Title": "FileController.cs",
+              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.API\\Controllers\\FileController.cs",
+              "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.API\\Controllers\\FileController.cs",
+              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.API\\Controllers\\FileController.cs",
+              "RelativeToolTip": "ToYouEMS\\ToYouEMS.API\\Controllers\\FileController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEcAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T01:42:47.767Z",
+              "WhenOpened": "2025-03-14T07:51:17.744Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LocalFileStorageService.cs",
+              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Infrastructure\\Services\\LocalFileStorageService.cs",
+              "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Infrastructure\\Services\\LocalFileStorageService.cs",
+              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Infrastructure\\Services\\LocalFileStorageService.cs",
+              "RelativeToolTip": "ToYouEMS\\ToYouEMS.Infrastructure\\Services\\LocalFileStorageService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFwAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T07:50:48.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IFileStorageService.cs",
+              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Interfaces\\IFileStorageService.cs",
+              "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Core\\Interfaces\\IFileStorageService.cs",
+              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Interfaces\\IFileStorageService.cs",
+              "RelativeToolTip": "ToYouEMS\\ToYouEMS.Core\\Interfaces\\IFileStorageService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACgAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T07:50:08.812Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\appsettings.json",
+              "RelativeDocumentMoniker": "ToYouEMS\\appsettings.json",
+              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\appsettings.json",
+              "RelativeToolTip": "ToYouEMS\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-13T01:25:52.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.API\\Program.cs",
+              "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.API\\Program.cs",
+              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.API\\Program.cs",
+              "RelativeToolTip": "ToYouEMS\\ToYouEMS.API\\Program.cs",
+              "ViewState": "AQIAAHwAAAAAAAAAAAAAwJ8AAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T01:52:55.634Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProfileController.cs",
+              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.API\\Controllers\\ProfileController.cs",
+              "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.API\\Controllers\\ProfileController.cs",
+              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.API\\Controllers\\ProfileController.cs",
+              "RelativeToolTip": "ToYouEMS\\ToYouEMS.API\\Controllers\\ProfileController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAIgAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T01:49:21.852Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ResumeController.cs",
+              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.API\\Controllers\\ResumeController.cs",
+              "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.API\\Controllers\\ResumeController.cs",
+              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.API\\Controllers\\ResumeController.cs",
+              "RelativeToolTip": "ToYouEMS\\ToYouEMS.API\\Controllers\\ResumeController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAANgAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T01:50:18.267Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "QuestionController.cs",
               "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.API\\Controllers\\QuestionController.cs",
               "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.API\\Controllers\\QuestionController.cs",
               "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.API\\Controllers\\QuestionController.cs",
               "RelativeToolTip": "ToYouEMS\\ToYouEMS.API\\Controllers\\QuestionController.cs",
-              "ViewState": "AQIAAEwBAAAAAAAAAAAcwFUBAABaAAAA",
+              "ViewState": "AQIAAN0BAAAAAAAAAAAIwN8BAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-13T12:11:45.477Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "QuestionDTO.cs",
-              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Models\\DTOs\\QuestionDTO.cs",
-              "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Core\\Models\\DTOs\\QuestionDTO.cs",
-              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Models\\DTOs\\QuestionDTO.cs",
-              "RelativeToolTip": "ToYouEMS\\ToYouEMS.Core\\Models\\DTOs\\QuestionDTO.cs",
-              "ViewState": "AQIAAFoAAAAAAAAAAAAcwBoAAAAuAAAA",
+              "DocumentIndex": 11,
+              "Title": "CaseController.cs",
+              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.API\\Controllers\\CaseController.cs",
+              "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.API\\Controllers\\CaseController.cs",
+              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.API\\Controllers\\CaseController.cs",
+              "RelativeToolTip": "ToYouEMS\\ToYouEMS.API\\Controllers\\CaseController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFkAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T12:08:01.045Z",
+              "WhenOpened": "2025-03-13T12:09:14.964Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "QuestionRevision.cs",
-              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\QuestionRevision.cs",
-              "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\QuestionRevision.cs",
-              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\QuestionRevision.cs",
-              "RelativeToolTip": "ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\QuestionRevision.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAXAAAA",
+              "DocumentIndex": 12,
+              "Title": "Profile.cs",
+              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Profile.cs",
+              "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Profile.cs",
+              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Profile.cs",
+              "RelativeToolTip": "ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Profile.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T12:02:59.289Z",
+              "WhenOpened": "2025-03-13T01:36:32.937Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Case.cs",
-              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Case.cs",
-              "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Case.cs",
-              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Case.cs",
-              "RelativeToolTip": "ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Case.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAAwBMAAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T01:37:04.897Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 13,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Infrastructure\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Infrastructure\\Data\\AppDbContext.cs",
@@ -245,12 +330,23 @@
               "RelativeToolTip": "ToYouEMS\\ToYouEMS.Infrastructure\\Data\\AppDbContext.cs",
               "ViewState": "AQIAAEEAAAAAAAAAAAAQwFQAAABCAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T01:40:26.495Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-13T01:40:26.495Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 14,
+              "Title": "Case.cs",
+              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Case.cs",
+              "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Case.cs",
+              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Case.cs",
+              "RelativeToolTip": "ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Case.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAAwBMAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T01:37:04.897Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "DashboardController.cs",
               "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.API\\Controllers\\DashboardController.cs",
               "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.API\\Controllers\\DashboardController.cs",
@@ -263,7 +359,55 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 16,
+              "Title": "QuestionRevision.cs",
+              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\QuestionRevision.cs",
+              "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\QuestionRevision.cs",
+              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\QuestionRevision.cs",
+              "RelativeToolTip": "ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\QuestionRevision.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T12:02:59.289Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "QuestionDTO.cs",
+              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Models\\DTOs\\QuestionDTO.cs",
+              "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Core\\Models\\DTOs\\QuestionDTO.cs",
+              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Models\\DTOs\\QuestionDTO.cs",
+              "RelativeToolTip": "ToYouEMS\\ToYouEMS.Core\\Models\\DTOs\\QuestionDTO.cs",
+              "ViewState": "AQIAAFoAAAAAAAAAAAAcwBoAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T12:08:01.045Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "IUnitOfWork.cs",
+              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Interfaces\\IUnitOfWork.cs",
+              "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Core\\Interfaces\\IUnitOfWork.cs",
+              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Interfaces\\IUnitOfWork.cs",
+              "RelativeToolTip": "ToYouEMS\\ToYouEMS.Core\\Interfaces\\IUnitOfWork.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T01:42:47.767Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Question.cs",
+              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Question.cs",
+              "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Question.cs",
+              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Question.cs",
+              "RelativeToolTip": "ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Question.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwBEAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T01:37:38.968Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
               "Title": "Resume.cs",
               "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Resume.cs",
               "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Resume.cs",
@@ -271,12 +415,11 @@
               "RelativeToolTip": "ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Resume.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAIwBQAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T01:37:59.517Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-13T01:37:59.517Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 21,
               "Title": "UnitOfWork.cs",
               "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Infrastructure\\Data\\UnitOfWork.cs",
               "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Infrastructure\\Data\\UnitOfWork.cs",
@@ -284,12 +427,11 @@
               "RelativeToolTip": "ToYouEMS\\ToYouEMS.Infrastructure\\Data\\UnitOfWork.cs",
               "ViewState": "AQIAABIAAAAAAAAAAAAiwC0AAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T01:44:13.251Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-13T01:44:13.251Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 18,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\User.cs",
               "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\User.cs",
@@ -297,25 +439,11 @@
               "RelativeToolTip": "ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\User.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T01:35:56.511Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-13T01:35:56.511Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ResumeController.cs",
-              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.API\\Controllers\\ResumeController.cs",
-              "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.API\\Controllers\\ResumeController.cs",
-              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.API\\Controllers\\ResumeController.cs",
-              "RelativeToolTip": "ToYouEMS\\ToYouEMS.API\\Controllers\\ResumeController.cs",
-              "ViewState": "AQIAAEwAAAAAAAAAAAAUwJQAAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T01:50:18.267Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 20,
               "Title": "AuthDTO.cs",
               "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Models\\DTOs\\AuthDTO.cs",
               "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Core\\Models\\DTOs\\AuthDTO.cs",
@@ -323,25 +451,11 @@
               "RelativeToolTip": "ToYouEMS\\ToYouEMS.Core\\Models\\DTOs\\AuthDTO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAADEAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T01:45:11.175Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-13T01:45:11.175Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ProfileController.cs",
-              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.API\\Controllers\\ProfileController.cs",
-              "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.API\\Controllers\\ProfileController.cs",
-              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.API\\Controllers\\ProfileController.cs",
-              "RelativeToolTip": "ToYouEMS\\ToYouEMS.API\\Controllers\\ProfileController.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAADwvyMAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T01:49:21.852Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 23,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.API\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.API\\Controllers\\AuthController.cs",
@@ -349,38 +463,11 @@
               "RelativeToolTip": "ToYouEMS\\ToYouEMS.API\\Controllers\\AuthController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAADwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T01:48:10.633Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-13T01:48:10.633Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Profile.cs",
-              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Profile.cs",
-              "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Profile.cs",
-              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Profile.cs",
-              "RelativeToolTip": "ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Profile.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T01:36:32.937Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.API\\Program.cs",
-              "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.API\\Program.cs",
-              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.API\\Program.cs",
-              "RelativeToolTip": "ToYouEMS\\ToYouEMS.API\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAIUAAAAKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T01:52:55.634Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 24,
               "Title": "AuthService.cs",
               "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Infrastructure\\Services\\AuthService.cs",
               "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Infrastructure\\Services\\AuthService.cs",
@@ -388,12 +475,11 @@
               "RelativeToolTip": "ToYouEMS\\ToYouEMS.Infrastructure\\Services\\AuthService.cs",
               "ViewState": "AQIAALEAAAAAAAAAAAAcwNIAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T01:46:17.378Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-13T01:46:17.378Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 25,
               "Title": "Repository.cs",
               "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Infrastructure\\Data\\Repositories\\Repository.cs",
               "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Infrastructure\\Data\\Repositories\\Repository.cs",
@@ -401,25 +487,11 @@
               "RelativeToolTip": "ToYouEMS\\ToYouEMS.Infrastructure\\Data\\Repositories\\Repository.cs",
               "ViewState": "AQIAACQAAAAAAAAAAAAYwEIAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T01:43:26.551Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-13T01:43:26.551Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\appsettings.json",
-              "RelativeDocumentMoniker": "ToYouEMS\\appsettings.json",
-              "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\appsettings.json",
-              "RelativeToolTip": "ToYouEMS\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-13T01:25:52.775Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 27,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\appsettings.Development.json",
               "RelativeDocumentMoniker": "ToYouEMS\\appsettings.Development.json",
@@ -427,12 +499,11 @@
               "RelativeToolTip": "ToYouEMS\\appsettings.Development.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-13T04:08:07.049Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-13T04:08:07.049Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 26,
               "Title": "ToYouEMS.http",
               "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.http",
               "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.http",
@@ -440,12 +511,11 @@
               "RelativeToolTip": "ToYouEMS\\ToYouEMS.http",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-03-13T04:26:27.369Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-13T04:26:27.369Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 28,
               "Title": "ToYouEMS.csproj",
               "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.csproj",
               "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.csproj",
@@ -453,12 +523,11 @@
               "RelativeToolTip": "ToYouEMS\\ToYouEMS.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-03-13T01:10:32.268Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-13T01:10:32.268Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 29,
               "Title": "IRepository.cs",
               "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Interfaces\\IRepository.cs",
               "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Core\\Interfaces\\IRepository.cs",
@@ -466,24 +535,22 @@
               "RelativeToolTip": "ToYouEMS\\ToYouEMS.Core\\Interfaces\\IRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T01:42:22.216Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-13T01:42:22.216Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 31,
               "Title": "ToYouEMS",
               "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.csproj",
               "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.csproj",
               "ToolTip": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.csproj",
               "RelativeToolTip": "ToYouEMS\\ToYouEMS.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-03-13T02:01:48.316Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-13T02:01:48.316Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 30,
               "Title": "IAuthService.cs",
               "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Interfaces\\IAuthService.cs",
               "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Core\\Interfaces\\IAuthService.cs",
@@ -491,12 +558,11 @@
               "RelativeToolTip": "ToYouEMS\\ToYouEMS.Core\\Interfaces\\IAuthService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T01:45:39.735Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-13T01:45:39.735Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 33,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "ToYouEMS\\Properties\\launchSettings.json",
@@ -504,12 +570,11 @@
               "RelativeToolTip": "ToYouEMS\\Properties\\launchSettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-13T02:01:53.885Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-13T02:01:53.885Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 32,
               "Title": "Dockerfile",
               "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\Dockerfile",
               "RelativeDocumentMoniker": "ToYouEMS\\Dockerfile",
@@ -517,12 +582,11 @@
               "RelativeToolTip": "ToYouEMS\\Dockerfile",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-13T02:03:49.79Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-13T02:03:49.79Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 34,
               "Title": "Stat.cs",
               "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Stat.cs",
               "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Stat.cs",
@@ -530,12 +594,11 @@
               "RelativeToolTip": "ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Stat.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T01:38:50.6Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-13T01:38:50.6Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 35,
               "Title": "Attendance.cs",
               "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Attendance.cs",
               "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Attendance.cs",
@@ -543,12 +606,11 @@
               "RelativeToolTip": "ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Attendance.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T01:38:14.675Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-13T01:38:14.675Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 36,
               "Title": "Log.cs",
               "DocumentMoniker": "C:\\Users\\chili\\source\\repos\\ToYouEMS\\ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Log.cs",
               "RelativeDocumentMoniker": "ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Log.cs",
@@ -556,8 +618,7 @@
               "RelativeToolTip": "ToYouEMS\\ToYouEMS.Core\\Models\\Entities\\Log.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T01:38:30.901Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-13T01:38:30.901Z"
             }
           ]
         }

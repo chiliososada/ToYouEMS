@@ -11,10 +11,12 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
     public class ProfileController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IFileStorageService _fileStorageService; // 添加文件存储服务
 
-        public ProfileController(IUnitOfWork unitOfWork)
+        public ProfileController(IUnitOfWork unitOfWork, IFileStorageService fileStorageService)
         {
             _unitOfWork = unitOfWork;
+            _fileStorageService = fileStorageService;
         }
 
         [HttpGet]
@@ -78,12 +80,40 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                 return NotFound(new { message = "未找到个人资料" });
             }
 
-            // 处理头像上传
-            // TODO: 实现文件存储服务，这里只是示例
-            var avatarUrl = "/uploads/avatars/" + Guid.NewGuid().ToString() + ".jpg";
+            if (request.Avatar == null || request.Avatar.Length == 0)
+            {
+                return BadRequest(new { message = "请选择要上传的头像" });
+            }
+
+            // 检查文件类型
+            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
+            var extension = Path.GetExtension(request.Avatar.FileName).ToLowerInvariant();
+            if (!allowedExtensions.Contains(extension))
+            {
+                return BadRequest(new { message = "仅支持JPG、PNG和GIF格式的图片" });
+            }
+
+            // 删除旧头像文件（如果存在）
+            if (!string.IsNullOrEmpty(profile.AvatarUrl) && _fileStorageService.FileExists(profile.AvatarUrl))
+            {
+                await _fileStorageService.DeleteFileAsync(profile.AvatarUrl);
+            }
+
+            // 保存新头像
+            var avatarUrl = await _fileStorageService.SaveFileAsync(request.Avatar, "avatars");
             profile.AvatarUrl = avatarUrl;
 
             _unitOfWork.Profiles.Update(profile);
+            await _unitOfWork.CompleteAsync();
+
+            // 记录日志
+            await _unitOfWork.Logs.AddAsync(new Log
+            {
+                UserID = userId,
+                Action = "UploadAvatar",
+                Description = "上传了新头像",
+                LogTime = DateTime.Now
+            });
             await _unitOfWork.CompleteAsync();
 
             return Ok(new { message = "头像上传成功", avatarUrl });

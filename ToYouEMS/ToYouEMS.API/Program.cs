@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
@@ -22,6 +23,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // 添加依赖注入
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IFileStorageService, LocalFileStorageService>(); // 添加文件存储服务
 // 添加其他服务注册
 
 // 添加控制器
@@ -120,7 +122,28 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
+// 创建存储目录
+var storagePath = Path.Combine(builder.Environment.ContentRootPath, "Storage");
+if (!Directory.Exists(storagePath))
+{
+    Directory.CreateDirectory(storagePath);
+    // 创建子目录
+    Directory.CreateDirectory(Path.Combine(storagePath, "avatars"));
+    Directory.CreateDirectory(Path.Combine(storagePath, "resumes"));
+    Directory.CreateDirectory(Path.Combine(storagePath, "attendances"));
+    Directory.CreateDirectory(Path.Combine(storagePath, "templates"));
+}
+
 app.UseHttpsRedirection();
+app.UseStaticFiles(); // 添加静态文件支持
+
+// 添加文件访问中间件
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(builder.Environment.ContentRootPath, "Storage")),
+    RequestPath = "/files"
+});
 
 // 启用CORS
 app.UseCors("AllowAll");
@@ -130,5 +153,8 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+// 初始化模板文件
+await TemplateInitializer.InitializeTemplates(app.Services, builder.Environment);
 
 app.Run();

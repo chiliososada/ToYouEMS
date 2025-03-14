@@ -12,10 +12,12 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
     public class ResumeController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IFileStorageService _fileStorageService;
 
-        public ResumeController(IUnitOfWork unitOfWork)
+        public ResumeController(IUnitOfWork unitOfWork, IFileStorageService fileStorageService)
         {
             _unitOfWork = unitOfWork;
+            _fileStorageService = fileStorageService;
         }
 
         [HttpGet]
@@ -60,8 +62,15 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
         [HttpGet("template")]
         public IActionResult GetTemplate()
         {
-            // TODO: 实现模板下载
-            var templateUrl = "/templates/resume_template.xlsx";
+            // 返回简历模板的URL
+            var templateUrl = _fileStorageService.GetFileUrl("resume_template.xlsx", "templates");
+
+            // 检查模板是否存在
+            if (!_fileStorageService.FileExists(templateUrl))
+            {
+                return NotFound(new { message = "简历模板不存在" });
+            }
+
             return Ok(new { templateUrl });
         }
 
@@ -70,9 +79,21 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
         {
             var userId = int.Parse(User.FindFirst("sub")?.Value);
 
-            // 处理简历上传
-            // TODO: 实现文件存储服务，这里只是示例
-            var fileUrl = "/uploads/resumes/" + Guid.NewGuid().ToString() + ".xlsx";
+            if (request.Resume == null || request.Resume.Length == 0)
+            {
+                return BadRequest(new { message = "请选择要上传的简历文件" });
+            }
+
+            // 检查文件类型
+            var allowedExtensions = new[] { ".pdf", ".doc", ".docx", ".xls", ".xlsx" };
+            var extension = Path.GetExtension(request.Resume.FileName).ToLowerInvariant();
+            if (!allowedExtensions.Contains(extension))
+            {
+                return BadRequest(new { message = "仅支持PDF、Word和Excel文件格式" });
+            }
+
+            // 保存简历文件
+            var fileUrl = await _fileStorageService.SaveFileAsync(request.Resume, "resumes");
 
             var resume = new Resume
             {
@@ -96,7 +117,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
             });
             await _unitOfWork.CompleteAsync();
 
-            return Ok(new { message = "简历上传成功" });
+            return Ok(new { message = "简历上传成功", fileUrl });
         }
 
         [HttpDelete("{id}")]
@@ -115,6 +136,12 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
             if (userType == UserType.Student.ToString() && resume.UserID != userId)
             {
                 return Forbid();
+            }
+
+            // 删除文件
+            if (!string.IsNullOrEmpty(resume.FileUrl) && _fileStorageService.FileExists(resume.FileUrl))
+            {
+                await _fileStorageService.DeleteFileAsync(resume.FileUrl);
             }
 
             _unitOfWork.Resumes.Remove(resume);

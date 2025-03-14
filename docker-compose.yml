@@ -13,6 +13,7 @@ services:
     volumes:
       - toyosoft-ems:/var/lib/mysql  # MySQL stores data in the shared volume
       - ./toyouems.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./mysql.conf:/etc/mysql/conf.d/mysql.cnf 
     networks:
       - toyosoft-ems
 
@@ -32,12 +33,13 @@ services:
     depends_on:
         - mysql
     ports:
-      - "56739:7039"
+      - "56739:8080"
     networks:
       - toyosoft-ems
 
 networks:
   toyosoft-ems:
+    driver: bridge
 
 volumes:
   toyosoft-ems:

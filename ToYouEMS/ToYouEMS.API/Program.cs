@@ -134,7 +134,7 @@ if (!Directory.Exists(storagePath))
     Directory.CreateDirectory(Path.Combine(storagePath, "templates"));
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 app.UseStaticFiles(); // 添加静态文件支持
 
 // 添加文件访问中间件

@@ -26,7 +26,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
             var userId = int.Parse(User.FindFirst("sub")?.Value);
             var userType = User.FindFirst("userType")?.Value;
 
-            IQueryable<Attendance> query;
+            IQueryable<Attendance> query;   
 
             // 根据用户角色决定查询范围
             if (userType == UserType.Student.ToString())

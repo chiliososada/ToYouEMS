@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: toyosoft-ems-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ems-password
+      MYSQL_DATABASE: ems-database
+    ports:
+      - "56253:3306"
+    volumes:
+      - toyosoft-ems:/var/lib/mysql  # MySQL stores data in the shared volume
+      - ./toyouems.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - toyosoft-ems
+
+  react-app:
+    image: toyosoft-ems-front:latest
+    container_name: toyosoft-ems-front
+    restart: always
+    ports:
+      - "56252:80"
+    networks:
+      - toyosoft-ems
+
+  dotnet-app:
+    image: toyosoft-ems-back:latest
+    container_name: toyosoft-ems-back
+    restart: always
+    depends_on:
+        - mysql
+    ports:
+      - "56739:7039"
+    networks:
+      - toyosoft-ems
+
+networks:
+  toyosoft-ems:
+
+volumes:
+  toyosoft-ems:
+

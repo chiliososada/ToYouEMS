@@ -23,89 +23,146 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
 
         // 获取问题列表（带筛选条件）
         [HttpGet]
+       
         public async Task<IActionResult> GetQuestions([FromQuery] QuestionQueryParams queryParams)
         {
-            var currentUserId = int.Parse(User.FindFirst("sub")?.Value);
-            var userType = User.FindFirst("userType")?.Value;
-
-            IQueryable<Question> query = _unitOfWork.Questions.Find(q => true);
-
-            // 应用筛选条件
-            if (queryParams.CaseID.HasValue)
+            try
             {
-                query = query.Where(q => q.CaseID == queryParams.CaseID.Value);
-            }
+                var currentUserId = int.Parse(User.FindFirst("sub")?.Value);
+                var userType = User.FindFirst("userType")?.Value;
+                IQueryable<Question> query = _unitOfWork.Questions.Find(q => true);
 
-            if (!string.IsNullOrEmpty(queryParams.Keyword))
-            {
-                query = query.Where(q => q.QuestionText.Contains(queryParams.Keyword) ||
-                                         q.Answer.Contains(queryParams.Keyword));
-            }
-
-            if (queryParams.Source.HasValue)
-            {
-                query = query.Where(q => q.Source == queryParams.Source.Value);
-            }
-
-            if (queryParams.Status.HasValue)
-            {
-                query = query.Where(q => q.Status == queryParams.Status.Value);
-            }
-
-            if (queryParams.UserID.HasValue)
-            {
-                query = query.Where(q => q.UserID == queryParams.UserID.Value);
-            }
-
-            // 根据用户角色限制查询范围
-            if (userType == UserType.Student.ToString())
-            {
-                // 学生只能看自己的未审批问题和所有已审批问题
-                query = query.Where(q => q.UserID == currentUserId || q.Status == QuestionStatus.Approved);
-            }
-            else if (userType == UserType.Teacher.ToString())
-            {
-                // 老师可以看所有问题
-            }
-
-            // 应用排序
-            query = ApplySorting(query, queryParams.SortBy, queryParams.SortDescending);
-
-            // 计算总数
-            var totalCount = await query.CountAsync();
-            var pageCount = (int)Math.Ceiling(totalCount / (double)queryParams.PageSize);
-
-            // 应用分页
-            var items = await query
-                .Skip((queryParams.PageNumber - 1) * queryParams.PageSize)
-                .Take(queryParams.PageSize)
-                .Include(q => q.User)
-                .Include(q => q.Case)
-                .Include(q => q.Revisions)
-                .Select(q => new QuestionListItemDTO
+                // 应用筛选条件
+                if (queryParams.CaseID.HasValue)
                 {
-                    QuestionID = q.QuestionID,
-                    CaseID = q.CaseID,
-                    CaseName = q.Case.CaseName,
-                    CompanyName = q.Case.CompanyName,
-                    UserID = q.UserID,
-                    Username = q.User.Username,
-                    QuestionText = q.QuestionText,
-                    Source = q.Source,
-                    Status = q.Status,
-                    CreatedAt = q.CreatedAt,
-                    RevisionCount = q.Revisions.Count
-                })
-                .ToListAsync();
+                    query = query.Where(q => q.CaseID == queryParams.CaseID.Value);
+                }
 
-            return Ok(new PagedResult<QuestionListItemDTO>
+                if (!string.IsNullOrEmpty(queryParams.Keyword))
+                {
+                    query = query.Where(q => q.QuestionText.Contains(queryParams.Keyword) ||
+                                             q.Answer.Contains(queryParams.Keyword));
+                }
+
+                // 修改职位过滤的实现方式 - 使用EF兼容的方式
+                if (!string.IsNullOrEmpty(queryParams.Position))
+                {
+                    var positions = queryParams.Position.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                                               .Where(p => !string.IsNullOrWhiteSpace(p))
+                                               .ToArray();
+
+                    if (positions.Length > 0)
+                    {
+                        // 为每个职位创建一个独立的条件，然后将它们用OR组合
+                        var positionsQuery = query;
+                        bool isFirst = true;
+
+                        foreach (var position in positions)
+                        {
+                            if (isFirst)
+                            {
+                                // 第一个条件直接设置
+                                positionsQuery = query.Where(q => q.Case != null &&
+                                                              q.Case.Position != null &&
+                                                              q.Case.Position.Contains(position));
+                                isFirst = false;
+                            }
+                            else
+                            {
+                                // 后续条件使用Union合并结果
+                                positionsQuery = positionsQuery.Union(
+                                    query.Where(q => q.Case != null &&
+                                                 q.Case.Position != null &&
+                                                 q.Case.Position.Contains(position))
+                                );
+                            }
+                        }
+
+                        // 使用处理后的查询
+                        query = positionsQuery;
+                    }
+                }
+
+                if (queryParams.Source.HasValue)
+                {
+                    query = query.Where(q => q.Source == queryParams.Source.Value);
+                }
+
+                if (queryParams.Status.HasValue)
+                {
+                    query = query.Where(q => q.Status == queryParams.Status.Value);
+                }
+
+                if (queryParams.UserID.HasValue)
+                {
+                    query = query.Where(q => q.UserID == queryParams.UserID.Value);
+                }
+
+                // 根据用户角色限制查询范围
+                if (userType == UserType.Student.ToString())
+                {
+                    // 学生只能看自己的未审批问题和所有已审批问题
+                    query = query.Where(q => q.UserID == currentUserId || q.Status == QuestionStatus.Approved);
+                }
+                else if (userType == UserType.Teacher.ToString())
+                {
+                    // 老师可以看所有问题
+                }
+
+                // 应用排序
+                query = ApplySorting(query, queryParams.SortBy, queryParams.SortDescending);
+
+                // 计算总数
+                var totalCount = await query.CountAsync();
+                var pageCount = (int)Math.Ceiling(totalCount / (double)queryParams.PageSize);
+
+                // 应用分页并安全地投影数据
+                var items = await query
+                    .Skip((queryParams.PageNumber - 1) * queryParams.PageSize)
+                    .Take(queryParams.PageSize)
+                    .Include(q => q.User)
+                    .Include(q => q.Case)
+                    .Include(q => q.Revisions)
+                    .Select(q => new QuestionListItemDTO
+                    {
+                        QuestionID = q.QuestionID,
+                        CaseID = q.CaseID,
+                        CaseName = q.Case != null ? q.Case.CaseName : string.Empty,
+                        CompanyName = q.Case != null ? q.Case.CompanyName : string.Empty,
+                        Position = q.Case != null ? q.Case.Position : string.Empty, // 添加Position字段
+                        UserID = q.UserID,
+                        Username = q.User != null ? q.User.Username : string.Empty,
+                        QuestionText = q.QuestionText ?? string.Empty,
+                        Source = q.Source,
+                        Status = q.Status,
+                        CreatedAt = q.CreatedAt,
+                        RevisionCount = q.Revisions != null ? q.Revisions.Count : 0
+                    })
+                    .ToListAsync();
+
+                return Ok(new PagedResult<QuestionListItemDTO>
+                {
+                    Items = items,
+                    TotalCount = totalCount,
+                    PageCount = pageCount,
+                    CurrentPage = queryParams.PageNumber,
+                    PageSize = queryParams.PageSize
+                });
+            }
+            catch (Exception ex)
             {
-                Items = items,
-                TotalCount = totalCount,
-                PageCount = pageCount,
-                CurrentPage = queryParams.PageNumber,
-                PageSize = queryParams.PageSize
-            });
+                // 记录详细异常
+                Console.WriteLine($"获取问题列表时发生错误: {ex.Message}");
+                Console.WriteLine($"异常详情: {ex.StackTrace}");
+
+                // 返回友好错误信息
+                return StatusCode(500, new
+                {
+                    message = "获取问题列表时发生服务器错误",
+                    error = ex.Message,
+                    details = ex.InnerException?.Message
+                });
+            }
         }
 
         // 获取问题详情
@@ -179,7 +236,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
             }
 
             // 设置问题状态（老师创建自动审批通过，学生创建需要审批）
-            QuestionStatus status = userType == UserType.Student.ToString() && request.Source == QuestionSource.Company
+            QuestionStatus status = userType == UserType.Student.ToString() 
                 ? QuestionStatus.Pending
                 : QuestionStatus.Approved;
 

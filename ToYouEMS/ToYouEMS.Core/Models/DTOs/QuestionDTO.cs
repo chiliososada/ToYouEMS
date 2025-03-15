@@ -51,6 +51,7 @@ namespace ToYouEMS.ToYouEMS.Core.Models.DTOs
         public QuestionSource? Source { get; set; }
         public QuestionStatus? Status { get; set; }
         public int? UserID { get; set; }
+        public string? Position { get; set; } // 添加职位属性
         public string SortBy { get; set; } = "CreatedAt";
         public bool SortDescending { get; set; } = true;
         public int PageNumber { get; set; } = 1;
@@ -78,6 +79,7 @@ namespace ToYouEMS.ToYouEMS.Core.Models.DTOs
     // 问题简要响应DTO（用于列表）
     public class QuestionListItemDTO
     {
+        public string Position { get; set; }
         public int QuestionID { get; set; }
         public int CaseID { get; set; }
         public string CaseName { get; set; }

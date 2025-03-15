@@ -209,9 +209,31 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
 
                 return Ok(new { message = "案例更新成功" });
             }
+        [HttpGet("positions")] // 这样将映射到 /api/Case/positions
+        public async Task<IActionResult> GetPositions()
+        {
+            try
+            {
+                // 加入调试信息
+               
 
-            // 删除案例
-            [HttpDelete("{id}")]
+                // 查询所有非空的职位
+                var positions = await _unitOfWork.Cases.Find(c => c.Position != null && c.Position != string.Empty)
+                    .Select(c => c.Position)
+                    .Distinct()
+                    .ToListAsync();
+
+               
+                return Ok(positions);
+            }
+            catch (Exception ex)
+            {
+               
+                return StatusCode(500, new { message = $"获取职位列表出错: {ex.Message}" });
+            }
+        }
+        // 删除案例
+        [HttpDelete("{id}")]
             public async Task<IActionResult> DeleteCase(int id)
             {
                 var userId = int.Parse(User.FindFirst("sub")?.Value);

@@ -339,12 +339,12 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
         public class CaseCreateRequest
         {
             public string CaseName { get; set; }
-            public string CompanyName { get; set; }
-            public string Position { get; set; }
+            public string? CompanyName { get; set; }
+            public string? Position { get; set; }
             public DateTime? InterviewDate { get; set; }
-            public string Location { get; set; }
-            public string ContactPerson { get; set; }
-            public string ContactInfo { get; set; }
+            public string? Location { get; set; }
+            public string? ContactPerson { get; set; }
+            public string? ContactInfo { get; set; }
             public string Description { get; set; }
         }
 

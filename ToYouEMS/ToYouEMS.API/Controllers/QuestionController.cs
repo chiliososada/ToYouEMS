@@ -207,7 +207,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                     UserID = userId,
                     RevisionText = request.Answer,
                     Type = RevisionType.Answer,
-                    Comments = "初始回答",
+                    Comments = "创建者答案",
                     CreatedAt = DateTime.Now
                 };
 

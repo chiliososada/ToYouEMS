@@ -141,8 +141,8 @@ app.UseStaticFiles(); // 添加静态文件支持
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(
-        Path.Combine(builder.Environment.ContentRootPath, "Storage")),
-    RequestPath = "/files"
+        Path.Combine(Directory.GetCurrentDirectory(), "Storage")),
+    RequestPath = "/Storage"
 });
 
 // 启用CORS

@@ -3,13 +3,13 @@
     public class Case
     {
         public int CaseID { get; set; }
-        public string CaseName { get; set; }
-        public string CompanyName { get; set; }
-        public string Position { get; set; }
-        public DateTime? InterviewDate { get; set; }
-        public string Location { get; set; }
-        public string ContactPerson { get; set; }
-        public string ContactInfo { get; set; }
+        public string CaseName { get; set; } // 保持不变，因为这是必填字段
+        public string? CompanyName { get; set; } // 添加可空标记
+        public string? Position { get; set; }
+        public DateTime? InterviewDate { get; set; } // 已经是可空的
+        public string? Location { get; set; }
+        public string? ContactPerson { get; set; }
+        public string? ContactInfo { get; set; }
         public string Description { get; set; }
         public CaseStatus Status { get; set; }
         public int CreatedBy { get; set; }

@@ -63,15 +63,26 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
         public IActionResult GetTemplate()
         {
             // 返回简历模板的URL
-            var templateUrl = _fileStorageService.GetFileUrl("resume_template.xlsx", "templates");
+           
+
+
+            string fileUrl = _fileStorageService.GetFileUrl("resume_template.xlsx", "templates");
+            string filePath = _fileStorageService.GetFilePath(fileUrl);
 
             // 检查模板是否存在
-            if (!_fileStorageService.FileExists(templateUrl))
+            if (!_fileStorageService.FileExists(fileUrl))
             {
                 return NotFound(new { message = "简历模板不存在" });
             }
+            string contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 
-            return Ok(new { templateUrl });
+            // 获取原始文件名 (如果有存储)
+            string originalFileName = "resume_template.xlsx";
+
+            // 读取文件内容并返回
+            var fileBytes = System.IO.File.ReadAllBytes(filePath);
+            return File(fileBytes, contentType, originalFileName);
+            //return Ok(new { templateUrl });
         }
 
         [HttpPost]

@@ -47,7 +47,7 @@ namespace ToYouEMS.ToYouEMS.Core.Models.DTOs
     public class QuestionQueryParams
     {
         public int? CaseID { get; set; }
-        public string Keyword { get; set; }
+        public string? Keyword { get; set; }
         public QuestionSource? Source { get; set; }
         public QuestionStatus? Status { get; set; }
         public int? UserID { get; set; }

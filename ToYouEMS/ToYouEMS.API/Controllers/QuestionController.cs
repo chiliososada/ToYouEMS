@@ -235,10 +235,10 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                 return BadRequest(new { message = "指定的案例不存在" });
             }
 
-            // 设置问题状态（老师创建自动审批通过，学生创建需要审批）
-            QuestionStatus status = userType == UserType.Student.ToString() 
-                ? QuestionStatus.Pending
-                : QuestionStatus.Approved;
+            // 修改后：学生创建的问题都需要审核，无论来源
+            QuestionStatus status = userType == UserType.Student.ToString()
+      ? QuestionStatus.Pending
+      : QuestionStatus.Approved;
 
             // 创建问题
             var question = new Question

@@ -236,10 +236,9 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
             }
 
             // 修改后：学生创建的问题都需要审核，无论来源
-            QuestionStatus status = userType == UserType.Student.ToString()
-      ? QuestionStatus.Pending
-      : QuestionStatus.Approved;
-
+            QuestionStatus status = userType == "Student"
+            ? QuestionStatus.Pending
+            : QuestionStatus.Approved;
             // 创建问题
             var question = new Question
             {

@@ -491,7 +491,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
 
         // 审批问题
         [HttpPost("{id}/approve")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Teacher,Admin")]
         public async Task<IActionResult> ApproveQuestion(int id, QuestionApprovalRequest request)
         {
             var userId = int.Parse(User.FindFirst("sub")?.Value);

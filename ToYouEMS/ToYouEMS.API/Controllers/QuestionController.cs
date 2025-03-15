@@ -350,11 +350,11 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                 return NotFound(new { message = "问题不存在" });
             }
 
-            // 只允许老师添加评论和修订
-            if (userType == UserType.Student.ToString() && request.Type != RevisionType.Answer)
-            {
-                return Forbid();
-            }
+            //// 只允许老师添加评论和修订
+            //if (userType == UserType.Student.ToString() && request.Type != RevisionType.Answer)
+            //{
+            //    return Forbid();
+            //}
 
             var revision = new QuestionRevision
             {

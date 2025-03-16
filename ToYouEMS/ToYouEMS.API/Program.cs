@@ -3,9 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-
 using System.Text;
-using ToYouEMS.Middleware;
 using ToYouEMS.ToYouEMS.Core.Interfaces;
 using ToYouEMS.ToYouEMS.Infrastructure.Data;
 using ToYouEMS.ToYouEMS.Infrastructure.Services;
@@ -117,7 +115,6 @@ using (var scope = app.Services.CreateScope())
 }
 
 // 配置HTTP请求管道
-if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
@@ -149,8 +146,7 @@ app.UseStaticFiles(new StaticFileOptions
 
 // 启用CORS
 app.UseCors("AllowAll");
-//启用apiLog
-app.UseApiLogging();
+
 // 启用身份验证和授权
 app.UseAuthentication();
 app.UseAuthorization();

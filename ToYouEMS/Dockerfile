@@ -11,7 +11,7 @@ RUN dotnet restore
 
 # Copy everything else and build the project
 COPY . ./
-RUN dotnet publish -c Release -o out
+RUN dotnet publish -c Release -o out || exit 1
 
 # Step 2: Use a smaller runtime image for deployment
 FROM mcr.microsoft.com/dotnet/aspnet:8.0

@@ -3,7 +3,7 @@ up: down build run
 
 build:
     cd ToYouEMS && docker build -t toyosoft-ems-back .
-    cd ../resume-mentor && docker build -t toyosoft-ems-front .
+    cd ../resume-mentor && docker build -t toyosoft-ems-front --no-cache  .
 
 run:
     docker compose up -d

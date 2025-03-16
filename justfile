@@ -16,3 +16,9 @@ log:
     docker compose logs -f
 
 
+commit:
+    git add --all
+    git commit -m "update"
+    cd ../resume-mentor
+    git add --all git commit -m "update"
+

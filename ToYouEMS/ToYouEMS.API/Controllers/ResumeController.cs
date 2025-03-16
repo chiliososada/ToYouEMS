@@ -111,7 +111,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                 UserID = userId,
                 FileName = request.Resume.FileName,
                 FileUrl = fileUrl,
-                UploadDate = DateTime.Now,
+                UploadDate = DateTime.UtcNow,
                 Status = ResumeStatus.Pending
             };
 
@@ -124,7 +124,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                 UserID = userId,
                 Action = "UploadResume",
                 Description = $"上传了简历: {request.Resume.FileName}",
-                LogTime = DateTime.Now
+                LogTime = DateTime.UtcNow
             });
             await _unitOfWork.CompleteAsync();
 
@@ -164,7 +164,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                 UserID = userId,
                 Action = "DeleteResume",
                 Description = $"删除了简历: {resume.FileName}",
-                LogTime = DateTime.Now
+                LogTime = DateTime.UtcNow
             });
             await _unitOfWork.CompleteAsync();
 
@@ -196,7 +196,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                 UserID = userId,
                 Action = "ReviewResume",
                 Description = $"审核了简历: {resume.FileName}, 状态: {request.Status}",
-                LogTime = DateTime.Now
+                LogTime = DateTime.UtcNow
             });
             await _unitOfWork.CompleteAsync();
 

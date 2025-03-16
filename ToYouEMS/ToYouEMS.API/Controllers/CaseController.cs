@@ -141,7 +141,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                     Description = request.Description,
                     Status = CaseStatus.Active,
                     CreatedBy = userId,
-                    CreatedAt = DateTime.Now
+                    CreatedAt = DateTime.UtcNow
                 };
 
                 await _unitOfWork.Cases.AddAsync(@case);
@@ -153,7 +153,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                     UserID = userId,
                     Action = "CreateCase",
                     Description = $"用户创建了案例: {@case.CaseName}",
-                    LogTime = DateTime.Now
+                    LogTime = DateTime.UtcNow
                 });
                 await _unitOfWork.CompleteAsync();
 
@@ -203,7 +203,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                     UserID = userId,
                     Action = "UpdateCase",
                     Description = $"用户更新了案例: {@case.CaseName}",
-                    LogTime = DateTime.Now
+                    LogTime = DateTime.UtcNow
                 });
                 await _unitOfWork.CompleteAsync();
 
@@ -267,7 +267,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                     UserID = userId,
                     Action = "DeleteCase",
                     Description = $"用户删除了案例: {@case.CaseName}",
-                    LogTime = DateTime.Now
+                    LogTime = DateTime.UtcNow
                 });
                 await _unitOfWork.CompleteAsync();
 

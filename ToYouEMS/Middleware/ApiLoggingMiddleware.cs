@@ -30,7 +30,7 @@ namespace ToYouEMS.Middleware
 
             // 记录日志
             _logger.LogInformation($"收到请求: {requestPath} - 来自IP: {requestIp} - {userInfo}");
-            Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] 收到请求: {requestPath} - 来自IP: {requestIp} - {userInfo}");
+            Console.WriteLine($"[{DateTime.UtcNow:yyyy-MM-dd HH:mm:ss}] 收到请求: {requestPath} - 来自IP: {requestIp} - {userInfo}");
 
             try
             {
@@ -45,7 +45,7 @@ namespace ToYouEMS.Middleware
                 string statusMessage = statusCode < 400 ? "成功" : "失败";
 
                 _logger.LogInformation($"请求{statusMessage}: {statusCode} - {requestPath} - 耗时: {elapsed}ms");
-                Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] 请求{statusMessage}: {statusCode} - {requestPath} - 耗时: {elapsed}ms");
+                Console.WriteLine($"[{DateTime.UtcNow:yyyy-MM-dd HH:mm:ss}] 请求{statusMessage}: {statusCode} - {requestPath} - 耗时: {elapsed}ms");
             }
             catch (Exception ex)
             {
@@ -54,7 +54,7 @@ namespace ToYouEMS.Middleware
                 var elapsed = stopwatch.ElapsedMilliseconds;
 
                 _logger.LogError(ex, $"请求异常: {requestPath} - 耗时: {elapsed}ms - 错误: {ex.Message}");
-                Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] 请求异常: {requestPath} - 耗时: {elapsed}ms - 错误: {ex.Message}");
+                Console.WriteLine($"[{DateTime.UtcNow:yyyy-MM-dd HH:mm:ss}] 请求异常: {requestPath} - 耗时: {elapsed}ms - 错误: {ex.Message}");
 
                 // 重新抛出异常，让异常处理中间件处理
                 throw;

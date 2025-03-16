@@ -118,7 +118,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
 
                 // 更新记录
                 existingAttendance.FileUrl = fileUrl;
-                existingAttendance.UploadDate = DateTime.Now;
+                existingAttendance.UploadDate = DateTime.UtcNow;
                 existingAttendance.Status = AttendanceStatus.Pending;
 
                 _unitOfWork.Attendances.Update(existingAttendance);
@@ -134,7 +134,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                     UserID = userId,
                     Month = request.Month,
                     FileUrl = fileUrl,
-                    UploadDate = DateTime.Now,
+                    UploadDate = DateTime.UtcNow,
                     Status = AttendanceStatus.Pending
                 };
 
@@ -149,7 +149,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                 UserID = userId,
                 Action = "UploadAttendance",
                 Description = $"上传了{request.Month}月份的勤务表",
-                LogTime = DateTime.Now
+                LogTime = DateTime.UtcNow
             });
             await _unitOfWork.CompleteAsync();
 
@@ -195,7 +195,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                 UserID = userId,
                 Action = "DeleteAttendance",
                 Description = $"删除了{attendance.Month}月份的勤务表",
-                LogTime = DateTime.Now
+                LogTime = DateTime.UtcNow
             });
             await _unitOfWork.CompleteAsync();
 
@@ -224,7 +224,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                 UserID = userId,
                 Action = "ReviewAttendance",
                 Description = $"审核了{attendance.Month}月份的勤务表，状态: {request.Status}",
-                LogTime = DateTime.Now
+                LogTime = DateTime.UtcNow
             });
             await _unitOfWork.CompleteAsync();
 

@@ -93,7 +93,7 @@ namespace ToYouEMS.ToYouEMS.Infrastructure.Services
                 Password = hashedPassword,
                 UserType = request.UserType,
                 IsActive = true,
-                CreatedAt = DateTime.Now
+                CreatedAt = DateTime.UtcNow
             };
 
             await _unitOfWork.Users.AddAsync(user);
@@ -115,7 +115,7 @@ namespace ToYouEMS.ToYouEMS.Infrastructure.Services
                 UserID = user.UserID,
                 Action = "Register",
                 Description = $"用户 {user.Username} 注册成功",
-                LogTime = DateTime.Now
+                LogTime = DateTime.UtcNow
             });
             await _unitOfWork.CompleteAsync();
 
@@ -148,7 +148,7 @@ namespace ToYouEMS.ToYouEMS.Infrastructure.Services
                 UserID = userId,
                 Action = "ChangePassword",
                 Description = $"用户 {user.Username} 修改了密码",
-                LogTime = DateTime.Now
+                LogTime = DateTime.UtcNow
             });
             await _unitOfWork.CompleteAsync();
 

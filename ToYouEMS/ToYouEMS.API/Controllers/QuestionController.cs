@@ -248,7 +248,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                 Answer = request.Answer,
                 Source = request.Source,
                 Status = status,
-                CreatedAt = DateTime.Now
+                CreatedAt = DateTime.UtcNow
             };
 
             await _unitOfWork.Questions.AddAsync(question);
@@ -264,7 +264,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                     RevisionText = request.Answer,
                     Type = RevisionType.Answer,
                     Comments = "创建者答案",
-                    CreatedAt = DateTime.Now
+                    CreatedAt = DateTime.UtcNow
                 };
 
                 await _unitOfWork.QuestionRevisions.AddAsync(revision);
@@ -277,7 +277,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                 UserID = userId,
                 Action = "CreateQuestion",
                 Description = $"用户创建了问题: {request.QuestionText}",
-                LogTime = DateTime.Now
+                LogTime = DateTime.UtcNow
             });
             await _unitOfWork.CompleteAsync();
 
@@ -323,7 +323,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                         RevisionText = request.Answer,
                         Type = userType == UserType.Teacher.ToString() ? RevisionType.TeacherEdit : RevisionType.Answer,
                         Comments = "更新回答",
-                        CreatedAt = DateTime.Now
+                        CreatedAt = DateTime.UtcNow
                     };
 
                     await _unitOfWork.QuestionRevisions.AddAsync(revision);
@@ -342,7 +342,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                 UserID = userId,
                 Action = "UpdateQuestion",
                 Description = $"用户更新了问题: {question.QuestionText}",
-                LogTime = DateTime.Now
+                LogTime = DateTime.UtcNow
             });
             await _unitOfWork.CompleteAsync();
 
@@ -382,7 +382,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                 UserID = userId,
                 Action = "DeleteQuestion",
                 Description = $"用户删除了问题: {question.QuestionText}",
-                LogTime = DateTime.Now
+                LogTime = DateTime.UtcNow
             });
             await _unitOfWork.CompleteAsync();
 
@@ -419,7 +419,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                 RevisionText = request.RevisionText,
                 Type = request.Type,
                 Comments = request.Comments,
-                CreatedAt = DateTime.Now
+                CreatedAt = DateTime.UtcNow
             };
 
             await _unitOfWork.QuestionRevisions.AddAsync(revision);
@@ -439,7 +439,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                 UserID = userId,
                 Action = "AddRevision",
                 Description = $"用户添加了修订/评论到问题: {question.QuestionText}",
-                LogTime = DateTime.Now
+                LogTime = DateTime.UtcNow
             });
             await _unitOfWork.CompleteAsync();
 
@@ -515,7 +515,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                     RevisionText = question.Answer ?? "",
                     Type = RevisionType.TeacherComment,
                     Comments = request.Comments,
-                    CreatedAt = DateTime.Now
+                    CreatedAt = DateTime.UtcNow
                 };
 
                 await _unitOfWork.QuestionRevisions.AddAsync(revision);
@@ -529,7 +529,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                 UserID = userId,
                 Action = "ApproveQuestion",
                 Description = $"管理员审批了问题: {question.QuestionText}, 状态: {request.Status}",
-                LogTime = DateTime.Now
+                LogTime = DateTime.UtcNow
             });
             await _unitOfWork.CompleteAsync();
 

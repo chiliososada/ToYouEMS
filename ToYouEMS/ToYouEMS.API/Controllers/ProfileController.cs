@@ -62,7 +62,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                 UserID = userId,
                 Action = "UpdateProfile",
                 Description = "更新了个人资料",
-                LogTime = DateTime.Now
+                LogTime = DateTime.UtcNow
             });
             await _unitOfWork.CompleteAsync();
 
@@ -112,7 +112,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                 UserID = userId,
                 Action = "UploadAvatar",
                 Description = "上传了新头像",
-                LogTime = DateTime.Now
+                LogTime = DateTime.UtcNow
             });
             await _unitOfWork.CompleteAsync();
 

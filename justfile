@@ -23,3 +23,8 @@ commit:
     git add --all
     -git commit -m "update"
 
+back:
+    git reset HEAD --hard
+front:
+    cd ../resume-mentor && git reset HEAD --hard
+

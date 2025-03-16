@@ -34,6 +34,8 @@ services:
         - mysql
     ports:
       - "56739:8080"
+    volumes:
+      - toyosoft-cv:/app/Storage  
     networks:
       - toyosoft-ems
 
@@ -43,4 +45,5 @@ networks:
 
 volumes:
   toyosoft-ems:
+  toyosoft-cv:
 

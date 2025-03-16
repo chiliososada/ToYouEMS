@@ -1,3 +1,6 @@
+default: up 
+up: down build run
+
 build:
     cd ToYouEMS && docker build -t toyosoft-ems-back .
     cd ../resume-mentor && docker build -t toyosoft-ems-front .
@@ -11,4 +14,5 @@ down:
     
 log:
     docker compose logs -f
+
 

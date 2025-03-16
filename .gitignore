@@ -3,6 +3,7 @@
 ################################################################################
 
 /ToYouEMS/Dockerfile
+/ToYouEMS/Storage/resumes/*
 /toyouems.sql
 .vs/
 bin/

@@ -1,6 +1,14 @@
 build:
     cd ToYouEMS && docker build -t toyosoft-ems-back .
+    cd ../resume-mentor && docker build -t toyosoft-ems-front .
 
 run:
-    docker compose up
+    docker compose up -d
+
+down:
+    docker compose down react-app
+    docker compose down dotnet-app
+    
+log:
+    docker compose logs -f
 

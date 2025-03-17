@@ -38,5 +38,5 @@ COPY init.sh /app/init.sh
 EXPOSE 8080
 
 # Define the entry point
-CMD ["sh", "-c", "/app/init.sh && sleep 5 && dotnet ToYouEMS.dll"]
+CMD ["sh", "-c", "/app/init.sh && sleep 10 && dotnet ToYouEMS.dll"]
 

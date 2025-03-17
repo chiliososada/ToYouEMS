@@ -103,6 +103,7 @@ namespace ToYouEMS.ToYouEMS.Core.Models.DTOs
         public RevisionType Type { get; set; }
         public string Comments { get; set; }
         public DateTime CreatedAt { get; set; }
+        public int UserType { get; set; } // 添加用户类型字段
     }
 
     // 分页响应DTO

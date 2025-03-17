@@ -23,7 +23,6 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
 
         // 获取问题列表（带筛选条件）
         [HttpGet]
-       
         public async Task<IActionResult> GetQuestions([FromQuery] QuestionQueryParams queryParams)
         {
             try
@@ -44,107 +43,144 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                                              q.Answer.Contains(queryParams.Keyword));
                 }
 
-                // 修改职位过滤的实现方式 - 使用EF兼容的方式
+                // 声明变量在外部，避免作用域问题
+                int resultTotalCount;
+                int resultPageCount;
+                List<QuestionListItemDTO> resultItems;
+
                 if (!string.IsNullOrEmpty(queryParams.Position))
                 {
-                    var positions = queryParams.Position.Split(',', StringSplitOptions.RemoveEmptyEntries)
-                                               .Where(p => !string.IsNullOrWhiteSpace(p))
-                                               .ToArray();
-
-                    if (positions.Length > 0)
+                    try
                     {
-                        // 为每个职位创建一个独立的条件，然后将它们用OR组合
-                        var positionsQuery = query;
-                        bool isFirst = true;
+                        // 记录调试信息
+                        Console.WriteLine($"Position filter applied: {queryParams.Position}");
 
-                        foreach (var position in positions)
+                        // 先获取符合其他条件的数据
+                        var items = await query
+                            .Include(q => q.User)
+                            .Include(q => q.Case)
+                            .Include(q => q.Revisions)
+                            .ToListAsync();
+
+                        // 分割职位字符串
+                        var positions = queryParams.Position.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                                                   .Where(p => !string.IsNullOrWhiteSpace(p))
+                                                   .ToArray();
+
+                        // 在内存中过滤
+                        var filteredItems = items.Where(q =>
+                            q.Case != null &&
+                            q.Case.Position != null &&
+                            positions.Any(p => q.Case.Position.Contains(p, StringComparison.OrdinalIgnoreCase))
+                        ).ToList();
+
+                        // 计算总数
+                        resultTotalCount = filteredItems.Count;
+                        resultPageCount = (int)Math.Ceiling(resultTotalCount / (double)queryParams.PageSize);
+
+                        // 应用分页
+                        resultItems = filteredItems
+                            .Skip((queryParams.PageNumber - 1) * queryParams.PageSize)
+                            .Take(queryParams.PageSize)
+                            .Select(q => new QuestionListItemDTO
+                            {
+                                QuestionID = q.QuestionID,
+                                CaseID = q.CaseID,
+                                CaseName = q.Case != null ? q.Case.CaseName : string.Empty,
+                                CompanyName = q.Case != null ? q.Case.CompanyName : string.Empty,
+                                Position = q.Case != null ? q.Case.Position : string.Empty,
+                                UserID = q.UserID,
+                                Username = q.User != null ? q.User.Username : string.Empty,
+                                QuestionText = q.QuestionText ?? string.Empty,
+                                Source = q.Source,
+                                Status = q.Status,
+                                CreatedAt = q.CreatedAt,
+                                RevisionCount = q.Revisions != null ? q.Revisions.Count : 0
+                            })
+                            .ToList();
+                    }
+                    catch (Exception ex)
+                    {
+                        // 记录详细异常
+                        Console.WriteLine($"处理职位筛选时发生错误: {ex.Message}");
+                        Console.WriteLine($"异常详情: {ex.StackTrace}");
+
+                        // 返回友好错误信息
+                        return StatusCode(500, new
                         {
-                            if (isFirst)
-                            {
-                                // 第一个条件直接设置
-                                positionsQuery = query.Where(q => q.Case != null &&
-                                                              q.Case.Position != null &&
-                                                              q.Case.Position.Contains(position));
-                                isFirst = false;
-                            }
-                            else
-                            {
-                                // 后续条件使用Union合并结果
-                                positionsQuery = positionsQuery.Union(
-                                    query.Where(q => q.Case != null &&
-                                                 q.Case.Position != null &&
-                                                 q.Case.Position.Contains(position))
-                                );
-                            }
-                        }
-
-                        // 使用处理后的查询
-                        query = positionsQuery;
+                            message = "处理职位筛选时发生服务器错误",
+                            error = ex.Message,
+                            details = ex.InnerException?.Message
+                        });
                     }
                 }
-
-                if (queryParams.Source.HasValue)
+                else
                 {
-                    query = query.Where(q => q.Source == queryParams.Source.Value);
-                }
-
-                if (queryParams.Status.HasValue)
-                {
-                    query = query.Where(q => q.Status == queryParams.Status.Value);
-                }
-
-                if (queryParams.UserID.HasValue)
-                {
-                    query = query.Where(q => q.UserID == queryParams.UserID.Value);
-                }
-
-                // 根据用户角色限制查询范围
-                if (userType == UserType.Student.ToString())
-                {
-                    // 学生只能看自己的未审批问题和所有已审批问题
-                    query = query.Where(q => q.UserID == currentUserId || q.Status == QuestionStatus.Approved);
-                }
-                else if (userType == UserType.Teacher.ToString())
-                {
-                    // 老师可以看所有问题
-                }
-
-                // 应用排序
-                query = ApplySorting(query, queryParams.SortBy, queryParams.SortDescending);
-
-                // 计算总数
-                var totalCount = await query.CountAsync();
-                var pageCount = (int)Math.Ceiling(totalCount / (double)queryParams.PageSize);
-
-                // 应用分页并安全地投影数据
-                var items = await query
-                    .Skip((queryParams.PageNumber - 1) * queryParams.PageSize)
-                    .Take(queryParams.PageSize)
-                    .Include(q => q.User)
-                    .Include(q => q.Case)
-                    .Include(q => q.Revisions)
-                    .Select(q => new QuestionListItemDTO
+                    // 正常的查询流程（没有Position过滤）
+                    if (queryParams.Source.HasValue)
                     {
-                        QuestionID = q.QuestionID,
-                        CaseID = q.CaseID,
-                        CaseName = q.Case != null ? q.Case.CaseName : string.Empty,
-                        CompanyName = q.Case != null ? q.Case.CompanyName : string.Empty,
-                        Position = q.Case != null ? q.Case.Position : string.Empty, // 添加Position字段
-                        UserID = q.UserID,
-                        Username = q.User != null ? q.User.Username : string.Empty,
-                        QuestionText = q.QuestionText ?? string.Empty,
-                        Source = q.Source,
-                        Status = q.Status,
-                        CreatedAt = q.CreatedAt,
-                        RevisionCount = q.Revisions != null ? q.Revisions.Count : 0
-                    })
-                    .ToListAsync();
+                        query = query.Where(q => q.Source == queryParams.Source.Value);
+                    }
 
+                    if (queryParams.Status.HasValue)
+                    {
+                        query = query.Where(q => q.Status == queryParams.Status.Value);
+                    }
+
+                    if (queryParams.UserID.HasValue)
+                    {
+                        query = query.Where(q => q.UserID == queryParams.UserID.Value);
+                    }
+
+                    // 根据用户角色限制查询范围
+                    if (userType == UserType.Student.ToString())
+                    {
+                        // 学生只能看自己的未审批问题和所有已审批问题
+                        query = query.Where(q => q.UserID == currentUserId || q.Status == QuestionStatus.Approved);
+                    }
+                    else if (userType == UserType.Teacher.ToString())
+                    {
+                        // 老师可以看所有问题
+                    }
+
+                    // 应用排序
+                    query = ApplySorting(query, queryParams.SortBy, queryParams.SortDescending);
+
+                    // 计算总数
+                    resultTotalCount = await query.CountAsync();
+                    resultPageCount = (int)Math.Ceiling(resultTotalCount / (double)queryParams.PageSize);
+
+                    // 应用分页并安全地投影数据
+                    resultItems = await query
+                        .Skip((queryParams.PageNumber - 1) * queryParams.PageSize)
+                        .Take(queryParams.PageSize)
+                        .Include(q => q.User)
+                        .Include(q => q.Case)
+                        .Include(q => q.Revisions)
+                        .Select(q => new QuestionListItemDTO
+                        {
+                            QuestionID = q.QuestionID,
+                            CaseID = q.CaseID,
+                            CaseName = q.Case != null ? q.Case.CaseName : string.Empty,
+                            CompanyName = q.Case != null ? q.Case.CompanyName : string.Empty,
+                            Position = q.Case != null ? q.Case.Position : string.Empty, // 添加Position字段
+                            UserID = q.UserID,
+                            Username = q.User != null ? q.User.Username : string.Empty,
+                            QuestionText = q.QuestionText ?? string.Empty,
+                            Source = q.Source,
+                            Status = q.Status,
+                            CreatedAt = q.CreatedAt,
+                            RevisionCount = q.Revisions != null ? q.Revisions.Count : 0
+                        })
+                        .ToListAsync();
+                }
+
+                // 统一返回结果
                 return Ok(new PagedResult<QuestionListItemDTO>
                 {
-                    Items = items,
-                    TotalCount = totalCount,
-                    PageCount = pageCount,
+                    Items = resultItems,
+                    TotalCount = resultTotalCount,
+                    PageCount = resultPageCount,
                     CurrentPage = queryParams.PageNumber,
                     PageSize = queryParams.PageSize
                 });
@@ -311,10 +347,25 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
             }
 
             // 如果有新答案，更新答案并创建修订记录
+            // 这里不再使用SkipRevisionCreation属性，简化逻辑
             if (!string.IsNullOrEmpty(request.Answer) && request.Answer != question.Answer)
             {
-                // 保存旧答案到修订记录
-                if (!string.IsNullOrEmpty(question.Answer))
+                // 更新问题答案
+                question.Answer = request.Answer;
+
+                // 只有在不是通过修订API更新答案时才创建新的修订记录
+                // 通过检查请求来源或其他方式来确定是否需要创建修订
+                var createRevision = true;
+
+                // 如果请求中明确指定了不创建修订，则遵循请求
+                // 为了兼容性，使用dynamic类型检查属性是否存在
+                var requestDict = request as IDictionary<string, object>;
+                if (requestDict != null && requestDict.ContainsKey("SkipRevisionCreation"))
+                {
+                    createRevision = !(bool)requestDict["SkipRevisionCreation"];
+                }
+
+                if (createRevision)
                 {
                     var revision = new QuestionRevision
                     {
@@ -328,9 +379,6 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
 
                     await _unitOfWork.QuestionRevisions.AddAsync(revision);
                 }
-
-                // 更新问题答案
-                question.Answer = request.Answer;
             }
 
             _unitOfWork.Questions.Update(question);
@@ -394,6 +442,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
         #region 问题修订和评论 API
 
         // 添加修订/评论
+        // 添加修订/评论的方法修改
         [HttpPost("{id}/revisions")]
         public async Task<IActionResult> AddRevision(int id, QuestionRevisionCreateRequest request)
         {
@@ -406,12 +455,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                 return NotFound(new { message = "问题不存在" });
             }
 
-            //// 只允许老师添加评论和修订
-            //if (userType == UserType.Student.ToString() && request.Type != RevisionType.Answer)
-            //{
-            //    return Forbid();
-            //}
-
+            // 创建新的修订/评论记录
             var revision = new QuestionRevision
             {
                 QuestionID = id,
@@ -424,8 +468,8 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
 
             await _unitOfWork.QuestionRevisions.AddAsync(revision);
 
-            // 如果是教师编辑答案，则更新问题主表的答案字段
-            if (userType == UserType.Teacher.ToString() && request.Type == RevisionType.TeacherEdit)
+            // 更新问题的答案字段 - 直接在这里更新，避免通过UpdateQuestion方法重复添加修订
+            if (request.Type == RevisionType.TeacherEdit || request.Type == RevisionType.Answer)
             {
                 question.Answer = request.RevisionText;
                 _unitOfWork.Questions.Update(question);
@@ -478,11 +522,62 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                     RevisionText = r.RevisionText,
                     Type = r.Type,
                     Comments = r.Comments,
-                    CreatedAt = r.CreatedAt
+                    CreatedAt = r.CreatedAt,
+                    UserType = (int)r.User.UserType // 添加用户类型信息
                 })
                 .ToListAsync();
 
             return Ok(revisions);
+        }
+        // 添加到QuestionController.cs中的#region 问题修订和评论 API部分
+        // 删除修订/评论
+        [HttpDelete("{id}/revisions/{revisionId}")]
+        public async Task<IActionResult> DeleteRevision(int id, int revisionId)
+        {
+            var userId = int.Parse(User.FindFirst("sub")?.Value);
+            var userType = User.FindFirst("userType")?.Value;
+
+            // 检查问题是否存在
+            var question = await _unitOfWork.Questions.GetByIdAsync(id);
+            if (question == null)
+            {
+                return NotFound(new { message = "问题不存在" });
+            }
+
+            // 获取修订记录
+            var revision = await _unitOfWork.QuestionRevisions.GetByIdAsync(revisionId);
+            if (revision == null)
+            {
+                return NotFound(new { message = "修订记录不存在" });
+            }
+
+            // 检查权限：只有教师/管理员可以删除自己的修订
+            if (userType != UserType.Teacher.ToString() && userType != UserType.Admin.ToString())
+            {
+                return BadRequest(new { message = "您没有权限删除此修订" });
+            }
+
+            // 确保是删除自己的修订
+            if (revision.UserID != userId)
+            {
+                return BadRequest(new { message = "您只能删除自己的修订" });
+            }
+
+            // 删除修订记录
+            _unitOfWork.QuestionRevisions.Remove(revision);
+            await _unitOfWork.CompleteAsync();
+
+            // 记录日志
+            await _unitOfWork.Logs.AddAsync(new Log
+            {
+                UserID = userId,
+                Action = "DeleteRevision",
+                Description = $"用户删除了问题ID: {id}的修订/评论",
+                LogTime = DateTime.UtcNow
+            });
+            await _unitOfWork.CompleteAsync();
+
+            return Ok(new { message = "修订/评论删除成功" });
         }
 
         #endregion

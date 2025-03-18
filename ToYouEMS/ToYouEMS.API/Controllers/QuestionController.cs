@@ -221,12 +221,12 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
             }
 
             // 检查权限
-            if (userType == UserType.Student.ToString() &&
-                question.UserID != currentUserId &&
-                question.Status != QuestionStatus.Approved)
-            {
-                return Forbid();
-            }
+            // if (userType == UserType.Student.ToString() &&
+            //     question.UserID != currentUserId &&
+            //     question.Status != QuestionStatus.Approved)
+            // {
+            //     return Forbid();
+            // }
 
             var result = new QuestionDetailDTO
             {
@@ -475,7 +475,7 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                 _unitOfWork.Questions.Update(question);
             }
 
-            await _unitOfWork.CompleteAsync();
+
 
             // 记录日志
             await _unitOfWork.Logs.AddAsync(new Log
@@ -497,19 +497,19 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
             var currentUserId = int.Parse(User.FindFirst("sub")?.Value);
             var userType = User.FindFirst("userType")?.Value;
 
-            var question = await _unitOfWork.Questions.GetByIdAsync(id);
-            if (question == null)
-            {
-                return NotFound(new { message = "问题不存在" });
-            }
+            //var question = await _unitOfWork.Questions.GetByIdAsync(id);
+            //if (question == null)
+            //{
+            //    return NotFound(new { message = "问题不存在" });
+            //}
 
-            // 检查权限
-            if (userType == UserType.Student.ToString() &&
-                question.UserID != currentUserId &&
-                question.Status != QuestionStatus.Approved)
-            {
-                return Forbid();
-            }
+            //// 检查权限
+            //if (userType == UserType.Student.ToString() &&
+            //    question.UserID != currentUserId &&
+            //    question.Status != QuestionStatus.Approved)
+            //{
+            //    return Forbid();
+            //}
 
             var revisions = await _unitOfWork.QuestionRevisions.Find(r => r.QuestionID == id)
                 .Include(r => r.User)
@@ -529,6 +529,10 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
 
             return Ok(revisions);
         }
+
+
+
+
         // 添加到QuestionController.cs中的#region 问题修订和评论 API部分
         // 删除修订/评论
         [HttpDelete("{id}/revisions/{revisionId}")]

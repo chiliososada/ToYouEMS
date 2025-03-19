@@ -17,6 +17,7 @@ namespace ToYouEMS.ToYouEMS.Infrastructure.Data
         public IRepository<Attendance> Attendances { get; private set; }
         public IRepository<Log> Logs { get; private set; }
         public IRepository<Stat> Stats { get; private set; }
+        public IRepository<Recording> Recordings { get; private set; } // 新增
 
         public UnitOfWork(AppDbContext context)
         {
@@ -32,6 +33,7 @@ namespace ToYouEMS.ToYouEMS.Infrastructure.Data
             Attendances = new Repository<Attendance>(context);
             Logs = new Repository<Log>(context);
             Stats = new Repository<Stat>(context);
+            Recordings = new Repository<Recording>(context); // 新增
         }
 
         public async Task<int> CompleteAsync()

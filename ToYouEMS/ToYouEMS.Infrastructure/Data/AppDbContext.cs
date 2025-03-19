@@ -23,6 +23,8 @@ namespace ToYouEMS.ToYouEMS.Infrastructure.Data
         public DbSet<Log> Logs { get; set; }
         public DbSet<Stat> Stats { get; set; }
 
+        public DbSet<Recording> Recordings { get; set; } // 新增
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -175,6 +177,49 @@ namespace ToYouEMS.ToYouEMS.Infrastructure.Data
                 entity.Property(e => e.StatCategory).IsRequired().HasMaxLength(50);
                 entity.Property(e => e.StatName).IsRequired().HasMaxLength(50);
                 entity.Property(e => e.LastUpdated).HasDefaultValueSql("CURRENT_TIMESTAMP");
+            });
+
+            modelBuilder.Entity<Recording>(entity =>
+            {
+                entity.ToTable("Recordings");
+                entity.HasKey(e => e.RecordingID);
+                entity.Property(e => e.Title).IsRequired().HasMaxLength(100);
+                entity.Property(e => e.FileName).HasMaxLength(100);
+                entity.Property(e => e.FileUrl).HasMaxLength(255);
+                entity.Property(e => e.CaseContent).IsRequired();
+                entity.Property(e => e.CaseInformation).IsRequired();
+                entity.Property(e => e.UploadDate).HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                // 关系配置
+                entity.HasOne(d => d.User)
+                      .WithMany()
+                      .HasForeignKey(d => d.UserID);
+            });
+
+            modelBuilder.Entity<Attendance>(entity =>
+            {
+                entity.ToTable("Attendance");
+                entity.HasKey(e => e.AttendanceID);
+                entity.Property(e => e.Month).HasMaxLength(7);
+                entity.Property(e => e.FileUrl).HasMaxLength(255);
+                entity.Property(e => e.TransportationFileUrl).HasMaxLength(255).IsRequired(false); // 新增
+                entity.Property(e => e.Status).HasDefaultValue(AttendanceStatus.Pending);
+                entity.Property(e => e.UploadDate).HasDefaultValueSql("CURRENT_TIMESTAMP");
+                entity.Property(e => e.WorkHours).HasDefaultValue(0); // 新增
+                entity.Property(e => e.TransportationFee).HasColumnType("decimal(10, 2)").HasDefaultValue(0m); // 新增
+                entity.Property(e => e.Comments).HasMaxLength(500).IsRequired(false); // 新增
+
+                // 关系配置
+                entity.HasOne(d => d.User)
+                      .WithMany(p => p.Attendances)
+                      .HasForeignKey(d => d.UserID);
+
+                // 新增关系配置：审核人
+                entity.HasOne(d => d.Reviewer)
+                      .WithMany()
+                      .HasForeignKey(d => d.ReviewerID)
+                      .OnDelete(DeleteBehavior.Restrict) // 防止删除用户时级联删除勤务表
+                      .IsRequired(false); // 审核人可以为空
             });
         }
     }

@@ -134,6 +134,8 @@ if (!Directory.Exists(storagePath))
     Directory.CreateDirectory(Path.Combine(storagePath, "resumes"));
     Directory.CreateDirectory(Path.Combine(storagePath, "attendances"));
     Directory.CreateDirectory(Path.Combine(storagePath, "templates"));
+    Directory.CreateDirectory(Path.Combine(storagePath, "recordings")); // 新增
+    Directory.CreateDirectory(Path.Combine(storagePath, "transportations")); // 交通费凭证目录
 }
 
 //app.UseHttpsRedirection();

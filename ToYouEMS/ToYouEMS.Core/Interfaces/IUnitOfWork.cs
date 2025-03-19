@@ -13,7 +13,9 @@ namespace ToYouEMS.ToYouEMS.Core.Interfaces
         IRepository<Log> Logs { get; }
         IRepository<Stat> Stats { get; }
         IRepository<QuestionRevision> QuestionRevisions { get; }
-       
+
+        IRepository<Recording> Recordings { get; } // 新增
+
         Task<int> CompleteAsync();
     }
 }

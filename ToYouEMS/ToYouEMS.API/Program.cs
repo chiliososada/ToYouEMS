@@ -99,6 +99,20 @@ builder.Services.AddCors(options =>
     });
 });
 
+// 设置Kestrel服务器请求体大小限制
+builder.Services.Configure<KestrelServerOptions>(options =>
+{
+    options.Limits.MaxRequestBodySize = 200 * 1024 * 1024; // 200MB
+});
+
+// 设置表单请求大小限制
+builder.Services.Configure<FormOptions>(options =>
+{
+    options.MultipartBodyLengthLimit = 200 * 1024 * 1024; // 200MB
+    options.ValueLengthLimit = 200 * 1024 * 1024;
+    options.MultipartHeadersLengthLimit = 200 * 1024 * 1024;
+});
+
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {

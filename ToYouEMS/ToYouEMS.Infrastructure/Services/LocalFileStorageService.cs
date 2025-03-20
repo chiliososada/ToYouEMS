@@ -90,5 +90,71 @@ namespace ToYouEMS.ToYouEMS.Infrastructure.Services
             string filePath = GetFilePath(fileUrl);
             return File.Exists(filePath);
         }
+        //分段上传技术
+
+
+        public async Task<string> InitializeChunkedUploadAsync(string fileName, string folder)
+        {
+            // 确保临时目录存在
+            string tempDir = Path.Combine(_baseStoragePath, "temp");
+            if (!Directory.Exists(tempDir))
+            {
+                Directory.CreateDirectory(tempDir);
+            }
+
+            // 生成唯一的临时文件名
+            string tempFileName = $"{Guid.NewGuid()}_{fileName}.temp";
+            string tempFilePath = Path.Combine(tempDir, tempFileName);
+
+            // 创建空文件
+            using (var fs = File.Create(tempFilePath))
+            {
+                // 创建空文件即可
+            }
+
+            return tempFilePath;
+        }
+
+        public async Task AppendChunkAsync(string tempFilePath, Stream chunkStream, int chunkIndex)
+        {
+            // 确保临时文件存在
+            if (!File.Exists(tempFilePath))
+            {
+                throw new FileNotFoundException("临时文件不存在", tempFilePath);
+            }
+
+            // 追加分片数据到临时文件
+            using (var fileStream = new FileStream(tempFilePath, FileMode.Append))
+            {
+                await chunkStream.CopyToAsync(fileStream);
+            }
+        }
+
+        public async Task<string> CompleteChunkedUploadAsync(string tempFilePath, string fileName, string folder)
+        {
+            // 确保临时文件存在
+            if (!File.Exists(tempFilePath))
+            {
+                throw new FileNotFoundException("临时文件不存在", tempFilePath);
+            }
+
+            // 确保目标目录存在
+            string dirPath = Path.Combine(_baseStoragePath, folder);
+            if (!Directory.Exists(dirPath))
+            {
+                Directory.CreateDirectory(dirPath);
+            }
+
+            // 生成唯一文件名
+            string fileExtension = Path.GetExtension(fileName);
+            string finalFileName = $"{Guid.NewGuid()}{fileExtension}";
+            string finalFilePath = Path.Combine(dirPath, finalFileName);
+
+            // 移动文件
+            File.Move(tempFilePath, finalFilePath);
+
+            // 返回文件URL
+            return GetFileUrl(finalFileName, folder);
+        }
     }
 }

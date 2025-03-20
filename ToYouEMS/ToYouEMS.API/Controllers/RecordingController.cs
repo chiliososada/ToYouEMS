@@ -130,10 +130,11 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
                 return BadRequest(new { message = "仅支持MP3、WAV、OGG、M4A、AAC和WEBM格式的音频文件" });
             }
 
-            // 检查文件大小（限制为20MB）
-            if (request.Recording.Length > 20 * 1024 * 1024)
+
+            // 检查文件大小（限制为100MB）
+            if (request.Recording.Length > 100 * 1024 * 1024)
             {
-                return BadRequest(new { message = "文件大小不能超过20MB" });
+                return BadRequest(new { message = "文件大小不能超过100MB" });
             }
 
             // 保存录音文件
@@ -205,6 +206,120 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
 
             return Ok(new { message = "录音删除成功" });
         }
+
+
+        // 文件路径: ToYouEMS/ToYouEMS.API/Controllers/RecordingController.cs
+        // 分段上传技术:
+
+        [HttpPost("init-chunked-upload")]
+        public async Task<IActionResult> InitializeChunkedUpload([FromBody] InitChunkedUploadRequest request)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(request.FileName))
+                {
+                    return BadRequest(new { message = "文件名不能为空" });
+                }
+
+                var tempFilePath = await _fileStorageService.InitializeChunkedUploadAsync(request.FileName, "recordings");
+                return Ok(new { tempFilePath, message = "分片上传初始化成功" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = $"初始化分片上传失败: {ex.Message}" });
+            }
+        }
+
+        [HttpPost("upload-chunk")]
+        public async Task<IActionResult> UploadChunk([FromForm] UploadChunkRequest request)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(request.TempFilePath))
+                {
+                    return BadRequest(new { message = "临时文件路径不能为空" });
+                }
+
+                if (request.Chunk == null || request.Chunk.Length == 0)
+                {
+                    return BadRequest(new { message = "分片数据不能为空" });
+                }
+
+                await _fileStorageService.AppendChunkAsync(
+                    request.TempFilePath,
+                    request.Chunk.OpenReadStream(),
+                    request.ChunkIndex
+                );
+
+                return Ok(new
+                {
+                    message = $"分片 {request.ChunkIndex + 1}/{request.TotalChunks} 上传成功",
+                    progress = (int)Math.Round((request.ChunkIndex + 1) * 100.0 / request.TotalChunks)
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = $"上传分片失败: {ex.Message}" });
+            }
+        }
+
+        [HttpPost("complete-chunked-upload")]
+        public async Task<IActionResult> CompleteChunkedUpload([FromBody] CompleteChunkedUploadRequest request)
+        {
+            try
+            {
+                var userId = int.Parse(User.FindFirst("sub")?.Value);
+
+                if (string.IsNullOrEmpty(request.TempFilePath) ||
+                    string.IsNullOrEmpty(request.FileName) ||
+                    string.IsNullOrEmpty(request.Title) ||
+                    string.IsNullOrEmpty(request.CaseContent) ||
+                    string.IsNullOrEmpty(request.CaseInformation))
+                {
+                    return BadRequest(new { message = "请求参数不完整" });
+                }
+
+                // 完成分片上传，获取最终文件URL
+                var fileUrl = await _fileStorageService.CompleteChunkedUploadAsync(
+                    request.TempFilePath,
+                    request.FileName,
+                    "recordings"
+                );
+
+                // 创建录音记录
+                var recording = new Recording
+                {
+                    UserID = userId,
+                    Title = request.Title,
+                    FileName = request.FileName,
+                    FileUrl = fileUrl,
+                    UploadDate = DateTime.UtcNow,
+                    CaseContent = request.CaseContent,
+                    CaseInformation = request.CaseInformation
+                };
+
+                await _unitOfWork.Recordings.AddAsync(recording);
+                await _unitOfWork.CompleteAsync();
+
+                // 记录日志
+                await _unitOfWork.Logs.AddAsync(new Log
+                {
+                    UserID = userId,
+                    Action = "UploadRecording",
+                    Description = $"上传了录音: {request.Title}",
+                    LogTime = DateTime.UtcNow
+                });
+                await _unitOfWork.CompleteAsync();
+
+                return Ok(new { message = "录音上传成功", fileUrl });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = $"完成分片上传失败: {ex.Message}" });
+            }
+        }
+
+
     }
 
     public class RecordingDTO
@@ -223,6 +338,29 @@ namespace ToYouEMS.ToYouEMS.API.Controllers
     public class RecordingUploadRequest
     {
         public IFormFile Recording { get; set; }
+        public string Title { get; set; }
+        public string CaseContent { get; set; }
+        public string CaseInformation { get; set; }
+    }
+    //分段上传技术
+    // 添加对应的请求模型
+    public class InitChunkedUploadRequest
+    {
+        public string FileName { get; set; }
+    }
+
+    public class UploadChunkRequest
+    {
+        public string TempFilePath { get; set; }
+        public IFormFile Chunk { get; set; }
+        public int ChunkIndex { get; set; }
+        public int TotalChunks { get; set; }
+    }
+
+    public class CompleteChunkedUploadRequest
+    {
+        public string TempFilePath { get; set; }
+        public string FileName { get; set; }
         public string Title { get; set; }
         public string CaseContent { get; set; }
         public string CaseInformation { get; set; }

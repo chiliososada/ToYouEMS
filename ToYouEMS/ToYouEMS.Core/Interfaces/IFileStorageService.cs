@@ -38,5 +38,34 @@
         /// <param name="fileUrl">文件URL</param>
         /// <returns>是否存在</returns>
         bool FileExists(string fileUrl);
+
+        // 文件路径: ToYouEMS/ToYouEMS.Core/Interfaces/IFileStorageService.cs
+        // 添加以下方法:
+
+        /// <summary>
+        /// 初始化分片上传，创建临时文件
+        /// </summary>
+        /// <param name="fileName">原始文件名</param>
+        /// <param name="folder">目标文件夹</param>
+        /// <returns>临时文件路径</returns>
+        Task<string> InitializeChunkedUploadAsync(string fileName, string folder);
+
+        /// <summary>
+        /// 上传文件分片
+        /// </summary>
+        /// <param name="tempFilePath">临时文件路径</param>
+        /// <param name="chunkStream">分片数据流</param>
+        /// <param name="chunkIndex">分片索引</param>
+        /// <returns>上传是否成功</returns>
+        Task AppendChunkAsync(string tempFilePath, Stream chunkStream, int chunkIndex);
+
+        /// <summary>
+        /// 完成分片上传
+        /// </summary>
+        /// <param name="tempFilePath">临时文件路径</param>
+        /// <param name="fileName">原始文件名</param>
+        /// <param name="folder">目标文件夹</param>
+        /// <returns>文件访问URL</returns>
+        Task<string> CompleteChunkedUploadAsync(string tempFilePath, string fileName, string folder);
     }
 }
